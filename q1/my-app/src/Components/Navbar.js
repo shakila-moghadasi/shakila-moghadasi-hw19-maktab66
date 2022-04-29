@@ -37,7 +37,7 @@ const Navbar = () => {
 
 
     return <>
-        <div className={ dark ? 'navbar dark-nav' : 'navbar light-nav'}>
+        <div>
             <h3>Where is the World ?</h3>
             <div>
                 {dark ? <FaMoon /> : <FaSun />}
@@ -45,8 +45,8 @@ const Navbar = () => {
             </div>
         </div>
         <div>
-            <div className={dark ? 'search s-dark' : 'search s-light'}>
-                {filterData.length === 0 ? <FaSearch className='icon-search'/> : <MdClose onClick={handleCloseSearch} className='icon-search'/>}
+            <div>
+                {filterData.length === 0 ? <FaSearch/> : <MdClose onClick={handleCloseSearch} />}
                 
                 <input 
                     type='text' 
@@ -56,9 +56,9 @@ const Navbar = () => {
                     value={search.get('name')}
                 />
                 {filterData.length !== 0 && (
-                    <div className={dark ? 'search-data search-dark' : 'search-data search-light'}>
+                    <div>
                         {filterData?.slice(0,15).map(item => {
-                            return <Link className='link-search' to={`/${item.alpha3Code}`}>{item.name}<br/></Link>
+                            return <Link to={`/${item.alpha3Code}`}>{item.name}<br/></Link>
                         })}
                     </div>
                 )}

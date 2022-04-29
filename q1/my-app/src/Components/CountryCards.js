@@ -1,5 +1,5 @@
 import React, { useContext , useEffect, useState} from 'react';
-import { useParams , Link} from 'react-router-dom';
+import { useParams , Link } from 'react-router-dom';
 import { ThemeContext } from './ThemeContext';
 
 const CountryCards = () => {
@@ -19,13 +19,13 @@ const CountryCards = () => {
         setobjCountry(findCountry())
     }, [objCountry])
 
-    return <div className='card-detailes'>
+    return <div>
         {objCountry?.map(item => {
            return <>
-               <div className='img-card'>
+               <div>
                    <img src={item.flags.svg}/>
                </div> 
-               <div className='p-card'>
+               <div>
                     <div>
                         <h1>{item.name}</h1>
                         <p>{`Native Name : ${item.nativeName}`}</p>
@@ -36,7 +36,7 @@ const CountryCards = () => {
                         <div>
                             <span>{`Border Countries : `}</span>
                             {item.borders?.map(el => 
-                                <Link className={dataContex.dark ? 'link-borders l-dark' : 'link-borders l-light'} to={`/`}>{el}</Link>
+                                <Link to={`/`}>{el}</Link>
                             )}
                         </div>
                     </div>
@@ -51,5 +51,6 @@ const CountryCards = () => {
         })}
     </div>;
 }
+
 
 export default CountryCards;
